@@ -18,7 +18,7 @@ const LoginPage = () => {
     const loginMutation = useMutation({
         mutationFn: () => loginRequest(email, password),
         onSuccess: (response) => {
-            console.log(response)
+            setToken(response.data.success, response.data.refresh)
             toast.success("Inicio exitoso")
             navigate("/")
         },
@@ -41,12 +41,12 @@ const LoginPage = () => {
             <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-[800px] lg:py-0">
                 <Link to="/" className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
                     <img className="w-8 h-8 mr-2" src={Logo} alt="logo" />
-                    <span>Shop Zone</span>
+                    <span>Salome</span>
                 </Link>
                 <div className="w-full md:w-[400px] lg:w-[500px] bg-slate-300 rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
                     <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                         <h1 className="text-xl text-center font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-                            Login in Shop Zone
+                            Login in Salome
                         </h1>
                         <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
                             <div>
